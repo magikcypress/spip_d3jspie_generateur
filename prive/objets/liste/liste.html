@@ -1,0 +1,30 @@
+<h1><:d3jspie_generateur:titre_page_liste_d3jspie:></h1>
+<B_d3jspie_generateur>
+
+<div class="liste-objets">
+<table class='spip liste'>
+[<caption><strong class="caption">(#ENV*{titre,#GRAND_TOTAL|singulier_ou_pluriel{info_1_site,info_nb_sites}})</strong></caption>]
+    <thead>
+        <tr class='first_row'>
+            <th class='statut' scope='col'></th>
+            <th class='titre' scope='col'><:d3jspie_generateur:liste_titre:></th>
+            <th class='types' scope='col'><:d3jspie_generateur:liste_type:></th>
+            <th class='date_modif' scope='col'><:d3jspie_generateur:liste_date_modif:></th>
+        </tr>
+    </thead>
+    <tbody>
+    <BOUCLE_d3jspie_generateur(D3JSPIE_GENERATEUR){tout}>
+        <tr class="[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})]">
+            <td class='statut'>[(#ID_D3JSPIE_GENERATEUR)]</td>
+            <td class='principale'><a href="[(#URL_ECRIRE|parametre_url{exec,d3jspie_generateur}|parametre_url{id_d3jspie_generateur,#ID_D3JSPIE_GENERATEUR}|parametre_url{type,#TYPE})]">[(#TITRE)]</a></td>
+            <td class='type secondaire'>[(#TYPE)]</td>
+            <td class='date_modif secondaire'>[(#DATE_MODIF|affdate)]</td>
+        </tr>
+    </BOUCLE_d3jspie_generateur>
+    </tbody>
+</table>
+</div>
+</B_d3jspie_generateur>[
+<div class="liste-objets sites caption-wrap"><strong class="caption">(#ENV*{sinon,''})</strong>
+<p><:d3jspie_generateur::></div>
+]<//B_d3jspie_generateur>

@@ -1,0 +1,28 @@
+<paquet
+	prefix="d3jspie_generateur"
+	categorie="theme"
+	version="1.0.0"
+	etat="dev"
+	compatibilite="[3.0.0;3.1.*]"
+	logo="prive/themes/spip/images/d3jspie_generateur-64.png"
+	schema="0.0.2"
+	documentation=""
+>
+
+	<nom>d3jspie_generateur</nom>
+
+	<auteur>cyp</auteur>
+
+	<licence>GNU/GPL</licence>
+
+	<necessite nom="d3js" />
+	<necessite nom="palette" />
+
+	<pipeline nom="declarer_tables_interfaces" inclure="base/d3jspie_generateur.php" />
+	<pipeline nom="declarer_tables_objets_sql" inclure="base/d3jspie_generateur.php" />
+	<pipeline nom="autoriser" inclure="d3jspie_generateur_autorisations.php" /> 
+	<pipeline nom="header_prive_css" action="header_prive_css" inclure="d3jspie_generateur_pipelines.php" />
+	<pipeline nom="insert_head_css" action="insert_head_css" inclure="d3jspie_generateur_pipelines.php" />
+
+	<menu nom="d3jspie_generateur" titre="d3jspie_generateur:icone_editer_d3jspie" parent="menu_edition" icone="images/d3jspie_generateur-16.png" action="liste_d3jspie_generateur" />
+</paquet>

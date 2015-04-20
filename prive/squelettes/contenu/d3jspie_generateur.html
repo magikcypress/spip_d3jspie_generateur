@@ -1,0 +1,10 @@
+<BOUCLE_DONNEES(spip_d3jspie_generateur){id_d3jspie_generateur}>
+	[(#SET{type,#TYPE})]
+</BOUCLE_DONNEES>
+
+[(#GET{type}|=={pie})
+<INCLURE{fond=prive/squelettes/inclure/pie,env,ajax} />]
+[(#GET{type}|=={bar})
+<INCLURE{fond=prive/squelettes/inclure/bar,env,ajax} />]
+[(#GET{type}|=={line})
+<INCLURE{fond=prive/squelettes/inclure/line,env,ajax} />]

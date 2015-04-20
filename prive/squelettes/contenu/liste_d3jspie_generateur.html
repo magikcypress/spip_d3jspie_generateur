@@ -1,0 +1,13 @@
+<INCLURE{fond=prive/objets/liste/liste,ajax} />
+
+[(#AUTORISER{creer,d3jspie_generateur})
+	[(#URL_ECRIRE{d3jspie_generateur_edit,new=oui}|parametre_url{type,"pie"}|icone_verticale{<:d3jspie_generateur:icone_ecrire_d3jspie_pie:>,d3jspie_generateur,new,right})]
+]
+
+[(#AUTORISER{creer,d3jsbar_generateur})
+	[(#URL_ECRIRE{d3jspie_generateur_edit,new=oui}|parametre_url{type,"bar"}|icone_verticale{<:d3jspie_generateur:icone_ecrire_d3jspie_bar:>,d3jspie_generateur,new,right})]
+]
+
+[(#AUTORISER{creer,d3jsline_generateur})
+	[(#URL_ECRIRE{d3jspie_generateur_edit,new=oui}|parametre_url{type,"line"}|icone_verticale{<:d3jspie_generateur:icone_ecrire_d3jspie_line:>,d3jspie_generateur,new,right})]
+]

@@ -1,0 +1,34 @@
+<div class="formulaire_spip formulaire_#FORM formulaire_#FORM-#ENV{objet}-#ENV{id,nouveau}">
+<h3 class='titrem'><img src="#CHEMIN_IMAGE{d3jspie_generateur-24.png}" class="cadre-icone" /><:d3jspie_generateur:item_utiliser_d3jspie_generateur:> - #ENV{_etape} / #ENV{_etapes}</h3>
+	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+	[(#ENV{editable})
+	<p><:d3jspie_generateur:texte_d3jspie_generateur_etape4:></p>
+	<form method='post' action='#ENV{action}'><div>
+		[(#REM) declarer les hidden qui declencheront le service du formulaire
+		parametre : url d'action ]
+		#ACTION_FORMULAIRE{#ENV{action}}
+	]
+		<ul>
+			[(#ENV{editable})
+			<span class="input">
+				#SET{name,form_size_canvasWidth}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
+				<li class="editer long_label editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
+					<label for="#GET{name}"><:d3jspie_generateur:form_size_canvasWidth:></label>[
+					<span class='erreur_message'>(#GET{erreurs})</span>
+					]<div class="choix">
+						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
+						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_size_canvasWidth:></label>
+					</div>
+				</li>
+			</span>]
+		</ul>
+
+	[(#ENV{editable})
+	[(#REM) ajouter les saisies supplementaires : extra et autre, a cet endroit ]
+	<!--extra-->
+	<p class='boutons'><span class='image_loading'>&nbsp;</span>
+		<input type="submit" class="submit" name="_retour_etape_5" value="<:suivant:>" /></p>
+	</div></form>
+	]
+</div>
