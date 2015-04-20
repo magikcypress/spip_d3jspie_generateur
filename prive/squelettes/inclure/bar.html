@@ -24,7 +24,7 @@
 <h1 class="grostitre">[(#GET{titre,#TITRE})]</h1>
 
 [(#AUTORISER{modifier,d3jspie_generateur})
-	[(#URL_ECRIRE{d3jspie_generateur_edit}|parametre_url{id_d3jspie_generateur,#GET{d3jspie_generateur_id}}|icone_verticale{<:d3jspie_generateur:icone_modifier_d3jspie:>,d3jspie_generateur,new,right})]
+	[(#URL_ECRIRE{d3jspie_generateur_edit}|parametre_url{id_d3jspie_generateur,#GET{d3jspie_generateur_id}}|parametre_url{type,bar}|icone_verticale{<:d3jspie_generateur:icone_modifier_d3jspie:>,d3jspie_generateur,new,right})]
 ]
 
 <div class="d3jspie_generateur_bar"></div>

@@ -1,7 +1,7 @@
 spip_d3jspie
 ============
 
-Faire de bien joli graph avec d3jspie
+Créer de bien joli graph avec d3jspie
 
 ## Version 1.0.0
 
