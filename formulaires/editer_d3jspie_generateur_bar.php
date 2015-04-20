@@ -27,13 +27,68 @@ function formulaires_editer_d3jspie_generateur_bar_charger_dist($id_d3jspie_gene
 	$valeurs = array();
 	$d3jspie_generateur = sql_allfetsel('*', 'spip_d3jspie_generateur', 'id_d3jspie_generateur=' . intval($id_d3jspie_generateur));
 
-	foreach ($d3jspie_generateur as $value) {
-		foreach ($value as $key => $value) {
-			$valeurs["form_$key"] = $value;
+
+	if($d3jspie_generateur) {
+		foreach ($d3jspie_generateur as $valeur) {
+			foreach ($valeur as $cle => $valeur) {
+				$valeurs["form_$cle"] = $valeur;
+			}
 		}
+		spip_log($valeurs,'test.' . _LOG_ERREUR);
+	} else {
+		$champs = array(
+			'form_titre',
+			'form_header_title_text',
+			'form_header_title_fontSize',
+			'form_header_title_font',
+			'form_header_title_color',
+			'form_header_subtitle_text',
+			'form_header_subtitle_color',
+			'form_header_subtitle_fontSize',
+			'form_header_subtitle_font',
+			'form_footer_text',
+			'form_footer_color',
+			'form_footer_fontSize',
+			'form_footer_font',
+			'form_footer_location',
+			'form_size_canvasWidth',
+			'form_size_canvasHeight',
+			'form_data_content_label',
+			'form_data_content_value',
+			'form_data_content_color',
+			'form_labels_outer_pieDistance',
+			'form_labels_inner_hideWhenLessThanPercentage',
+			'form_labels_mainLabel_color',
+			'form_labels_mainLabel_fontSize',
+			'form_labels_percentage_color',
+			'form_labels_percentage_decimalPlaces',
+			'form_labels_value_fontSize',
+			'form_labels_value_color',
+			'form_labels_lines_enabled',
+			'form_effects_pullOutSegmentOnClick_effect',
+			'form_effects_pullOutSegmentOnClick_speed',
+			'form_effects_pullOutSegmentOnClick_size',
+			'form_misc_gradient_enabled',
+			'form_misc_gradient_percentage',
+			'dimension_canvasTop',
+			'dimension_canvasBottom',
+			'dimension_canvasRight',
+			'dimension_canvasLeft',
+			'rotation_yaxis',
+			'bulle_background',
+			'bulle_border',
+			'bulle_color',
+			'bulle_corner_border',
+			'bulle_z_index'
+		);
+
+		foreach ($champs as $cle => $valeur) {
+			$valeurs["$valeur"] = _request($valeur);
+		}
+		spip_log($valeurs,'test.' . _LOG_ERREUR);
 	}
 
-	// $valeurs['_etapes'] = 8;
+	$valeurs['_etapes'] = 7;
 	return $valeurs;
 	
 }
@@ -45,6 +100,78 @@ function formulaires_editer_d3jspie_generateur_bar_charger_dist($id_d3jspie_gene
  *     Tableau des erreurs
 **/
 function formulaires_editer_d3jspie_generateur_verifier_bar_dist($id_d3jspie_generateur='new', $objet='', $id_objet='', $retour='', $ajaxload='oui', $options=''){
+	$erreurs = array();
+
+	return $erreurs;
+}
+
+/**
+ * Vérifications du formulaire de configuration des d3jspie_generateur_bar
+ *
+ * @return array
+ *     Tableau des erreurs
+**/
+function formulaires_editer_d3jspie_generateur_verifier_bar_2_dist($id_d3jspie_generateur='new', $objet='', $id_objet='', $retour='', $ajaxload='oui', $options=''){
+	$erreurs = array();
+
+	return $erreurs;
+}
+
+/**
+ * Vérifications du formulaire de configuration des d3jspie_generateur_bar
+ *
+ * @return array
+ *     Tableau des erreurs
+**/
+function formulaires_editer_d3jspie_generateur_verifier_bar_3_dist($id_d3jspie_generateur='new', $objet='', $id_objet='', $retour='', $ajaxload='oui', $options=''){
+	$erreurs = array();
+
+	return $erreurs;
+}
+
+/**
+ * Vérifications du formulaire de configuration des d3jspie_generateur_bar
+ *
+ * @return array
+ *     Tableau des erreurs
+**/
+function formulaires_editer_d3jspie_generateur_verifier_bar_4_dist($id_d3jspie_generateur='new', $objet='', $id_objet='', $retour='', $ajaxload='oui', $options=''){
+	$erreurs = array();
+
+	return $erreurs;
+}
+
+/**
+ * Vérifications du formulaire de configuration des d3jspie_generateur_bar
+ *
+ * @return array
+ *     Tableau des erreurs
+**/
+function formulaires_editer_d3jspie_generateur_verifier_bar_5_dist($id_d3jspie_generateur='new', $objet='', $id_objet='', $retour='', $ajaxload='oui', $options=''){
+	$erreurs = array();
+
+	return $erreurs;
+}
+
+/**
+ * Vérifications du formulaire de configuration des d3jspie_generateur_bar
+ *
+ * @return array
+ *     Tableau des erreurs
+**/
+function formulaires_editer_d3jspie_generateur_verifier_bar_6_dist($id_d3jspie_generateur='new', $objet='', $id_objet='', $retour='', $ajaxload='oui', $options=''){
+	$erreurs = array();
+
+	return $erreurs;
+}
+
+/**
+ * Vérifications du formulaire de configuration des d3jspie_generateur_bar
+ *
+ * @return array
+ *     Tableau des erreurs
+**/
+function formulaires_editer_d3jspie_generateur_verifier_bar_7_dist($id_d3jspie_generateur='new', $objet='', $id_objet='', $retour='', $ajaxload='oui', $options=''){
 	$erreurs = array();
 
 	return $erreurs;

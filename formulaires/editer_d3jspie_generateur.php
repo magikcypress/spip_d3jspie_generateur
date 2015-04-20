@@ -72,10 +72,8 @@ function formulaires_editer_d3jspie_generateur_charger_dist($id_d3jspie_generate
 		foreach ($champs as $cle => $valeur) {
 			$valeurs["$valeur"] = _request($valeur);
 		}
-		spip_log($valeurs,'test.' . _LOG_ERREUR);
 	}
 	$valeurs['_etapes'] = 8;
-	spip_log($valeurs,'test.' . _LOG_ERREUR);
 
 	return $valeurs;
 	

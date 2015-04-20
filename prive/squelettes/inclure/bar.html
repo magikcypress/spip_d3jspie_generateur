@@ -5,6 +5,7 @@
 	[(#SET{header_title_text,#HEADER_TITLE_TEXT})]
 	[(#SET{header_title_fontSize,#HEADER_TITLE_FONTSIZE})]
 	[(#SET{header_title_font,#HEADER_TITLE_FONT})]
+	[(#SET{header_title_color,#HEADER_TITLE_COLOR})]
 	[(#SET{header_subtitle_text,#HEADER_SUBTITLE_TEXT})]
 	[(#SET{header_subtitle_color,#HEADER_SUBTITLE_COLOR})]
 	[(#SET{header_subtitle_fontSize,#HEADER_SUBTITLE_FONTSIZE})]
@@ -19,6 +20,16 @@
 	[(#SET{data_content_label,#DATA_CONTENT_LABEL})]
 	[(#SET{data_content_value,#DATA_CONTENT_VALUE})]
 	[(#SET{data_content_color,#DATA_CONTENT_COLOR})]
+	[(#SET{dimension_canvasTop,#DIMENSION_CANVASTOP})]
+	[(#SET{dimension_canvasBottom,#DIMENSION_CANVASBOTTOM})]
+	[(#SET{dimension_canvasRight,#DIMENSION_CANVASRIGHT})]
+	[(#SET{dimension_canvasLeft,#DIMENSION_CANVASLEFT})]
+	[(#SET{rotation_yaxis,#ROTATION_YAXIS})]
+	[(#SET{bulle_background,#BULLE_BACKGROUND})]
+	[(#SET{bulle_border,#BULLE_BORDER})]
+	[(#SET{bulle_color,#BULLE_COLOR})]
+	[(#SET{bulle_corner_border,#BULLE_CORNER_BORDER})]
+	[(#SET{bulle_z_index,#BULLE_Z_INDEX})]
 </BOUCLE_DONNEES>
 
 <h1 class="grostitre">[(#GET{titre,#TITRE})]</h1>
@@ -30,43 +41,43 @@
 <div class="d3jspie_generateur_bar"></div>
 
 <script>
-var json = [
-	{label: "PERL",  value:  124384, color: "#CCCCCC"},
-	{label: "PHP",  value:  114384, color: "#90c469"},
-	{label: "Python",  value:  95002, color: "#daca61"}
-];
+	var json = [
+		{label: "PERL",  value:  124384, color: "#CCCCCC"},
+		{label: "PHP",  value:  114384, color: "#90c469"},
+		{label: "Python",  value:  95002, color: "#daca61"}
+	];
 
-$(".d3jspie_generateur_bar").append('<div id="d3jspie_generateur_bar"></div>');
+	$(".d3jspie_generateur_bar").append('<div id="d3jspie_generateur_bar"></div>');
 
-var margin = {top: 60, right: 60, bottom: 30, left: 60},
-	width = 660 - margin.left - margin.right,
-	height = 600 - margin.top - margin.bottom;
+	var margin = {top: [(#GET{dimension_canvasTop})], right: [(#GET{dimension_canvasRight})], bottom: [(#GET{dimension_canvasBottom})], left: [(#GET{dimension_canvasLeft})]},
+		width = [(#GET{size_canvasWidth})] - margin.left - margin.right,
+		height = [(#GET{size_canvasHeight})] - margin.top - margin.bottom;
 
-var x = d3.scale.ordinal()
-	.rangeRoundBands([0, width], .1);
+	var x = d3.scale.ordinal()
+		.rangeRoundBands([0, width], .1);
 
-var y = d3.scale.linear()
-	.range([height, 0]);
+	var y = d3.scale.linear()
+		.range([height, 0]);
 
-var xAxis = d3.svg.axis()
-	.scale(x)
-	.orient("bottom");
+	var xAxis = d3.svg.axis()
+		.scale(x)
+		.orient("bottom");
 
-var yAxis = d3.svg.axis()
-	.scale(y)
-	.orient("left")
-	.ticks(6);
+	var yAxis = d3.svg.axis()
+		.scale(y)
+		.orient("left")
+		.ticks(6);
 
-var div = d3.select("body")
-	.append("div")
-	.attr("class", "tooltip_bar")
-	.style("opacity", 0);
+	var div = d3.select("body")
+		.append("div")
+		.attr("class", "tooltip_bar")
+		.style("opacity", 0);
 
-var svg = d3.select("#d3jspie_generateur_bar").append("svg")
-	.attr("width", width + margin.left + margin.right)
-	.attr("height", height + margin.top + margin.bottom)
-	.append("g")
-	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+	var svg = d3.select("#d3jspie_generateur_bar").append("svg")
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
+		.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 	x.domain(json.map(function(d) {return d.label; }));
 	y.domain([0, d3.max(json, function(d) { return d.value; })]);
@@ -80,7 +91,7 @@ var svg = d3.select("#d3jspie_generateur_bar").append("svg")
 		.attr("class", "y axis")
 		.call(yAxis)
 		.append("text")
-		.attr("transform", "rotate(-90)")
+		.attr("transform", "rotate([(#GET{rotation_yaxis})])")
 		.attr("y", 6)
 		.attr("dy", ".71em")
 		.style("text-anchor", "end")
@@ -90,19 +101,28 @@ var svg = d3.select("#d3jspie_generateur_bar").append("svg")
 		.attr("x", (width / 2))
 		.attr("y", 1 - (margin.top / 1.5))
 		.attr("text-anchor", "middle")
-		.attr("fill", "#333333")
-		.style("font-size", "20px")
-		.style("font-family", "open sans")
+		.attr("fill", "[(#GET{header_title_color})]")
+		.style("font-size", "[(#GET{header_title_fontSize})]")
+		.style("font-family", "[(#GET{header_title_font})]")
 		.text("[(#GET{titre})]");
 
 	svg.append("text")
 		.attr("x", (width / 2))
 		.attr("y", 1 - (margin.top / 2.8))
 		.attr("text-anchor", "middle")
-		.attr("fill", "#999999")
-		.style("font-size", "12px")
-		.style("font-family", "open sans")
+		.attr("fill", "[(#GET{header_subtitle_color})]") 
+		.style("font-size", "[(#GET{header_subtitle_fontSize})]") 
+		.style("font-family", "[(#GET{header_subtitle_font})]")
 		.text("[(#GET{header_subtitle_text})]");
+
+	svg.append("text")
+		.attr("x", (width / 2))
+		.attr("y", 1 - (margin.bottom / 2.8))
+		.attr("text-anchor", "middle")
+		.attr("fill", "[(#GET{header_footer_color})]") 
+		.style("font-size", "[(#GET{header_footer_fontSize})]") 
+		.style("font-family", "[(#GET{header_footer_font})]")
+		.text("[(#GET{header_footer_text})]");
 
 	svg.selectAll(".d3jspie_generateur_bar")
 		.data(json)
@@ -126,8 +146,7 @@ var svg = d3.select("#d3jspie_generateur_bar").append("svg")
 				.style("background-color", "#000000")
 				.style("border", "1px solid " + d.color)
 				.style("color", "#FFFFFF")
-				.style("z-index", 5000); 
+				.style("z-index", [(#GET{bulle_z_index})]); 
 		});
-
 
 </script>

@@ -32,6 +32,16 @@
 	[(#SET{effects_pullOutSegmentOnClick_size,#EFFECTS_PULLOUTSEGMENTONCLICK_SIZE})]
 	[(#SET{misc_gradient_enabled,#MISC_GRADIENT_ENABLED})]
 	[(#SET{misc_gradient_percentage,#MISC_GRADIENT_PERCENTAGE})]
+	[(#SET{dimension_canvasTop,#DIMENSION_CANVASTOP})]
+	[(#SET{dimension_canvasBottom,#DIMENSION_CANVASBOTTOM})]
+	[(#SET{dimension_canvasRight,#DIMENSION_CANVASRIGHT})]
+	[(#SET{dimension_canvasLeft,#DIMENSION_CANVASLEFT})]
+	[(#SET{bulle_background,#BULLE_BACKGROUND})]
+	[(#SET{bulle_border,#BULLE_BORDER})]
+	[(#SET{bulle_color,#BULLE_COLOR})]
+	[(#SET{bulle_corner_border,#BULLE_CORNER_BORDER})]
+	[(#SET{bulle_z_index,#BULLE_Z_INDEX})]
+
 </BOUCLE_DONNEES>
 
 <h1 class="grostitre">[(#GET{titre,#TITRE})]</h1>
@@ -55,9 +65,9 @@
 
 	$(".d3jspie_generateur_ligne").append('<div id="d3jspie_generateur_ligne"></div>');
 
-	var margin = {top: 60, right: 60, bottom: 30, left: 60},
-		width = 660 - margin.left - margin.right,
-		height = 300 - margin.top - margin.bottom;
+	var margin = {top: [(#GET{dimension_canvasTop})], right: [(#GET{dimension_canvasRight})], bottom: [(#GET{dimension_canvasBottom})], left: [(#GET{dimension_canvasLeft})]},
+		width = [(#GET{size_canvasWidth})] - margin.left - margin.right,
+		height = [(#GET{size_canvasHeight})] - margin.top - margin.bottom;
 
 	var parseDate = d3.time.format("%d-%b-%y").parse;
 	var tooltipDate = d3.time.format("%e %b");
@@ -110,7 +120,7 @@
 		.attr("class", "y axis")
 		.call(yAxis)
 		.append("text")
-		.attr("transform", "rotate(-90)")
+		.attr("transform", "rotate([(#GET{rotation_yaxis})])")
 		.attr("y", 6)
 		.attr("dy", ".71em")
 		.style("text-anchor", "end")
@@ -125,26 +135,35 @@
 		.attr("x", (width / 2))
 		.attr("y", 4 - (margin.top / 1.5))
 		.attr("text-anchor", "middle")
-		.attr("fill", "#333333")
-		.style("font-size", "20px")
-		.style("font-family", "open sans")
+		.attr("fill", "[(#GET{header_title_color})]")
+		.style("font-size", "[(#GET{header_title_fontSize})]")
+		.style("font-family", "[(#GET{header_title_font})]")
 		.text("[(#GET{titre})]");
 
 	svg.append("text")
 		.attr("x", (width / 2))
 		.attr("y", 1 - (margin.top / 2.8))
 		.attr("text-anchor", "middle")
-		.attr("fill", "#999999") 
-		.style("font-size", "12px") 
-		.style("font-family", "open sans")
+		.attr("fill", "[(#GET{header_subtitle_color})]") 
+		.style("font-size", "[(#GET{header_subtitle_fontSize})]") 
+		.style("font-family", "[(#GET{header_subtitle_font})]")
 		.text("[(#GET{header_subtitle_text})]");
+
+	svg.append("text")
+		.attr("x", (width / 2))
+		.attr("y", 1 - (margin.bottom / 2.8))
+		.attr("text-anchor", "middle")
+		.attr("fill", "[(#GET{header_footer_color})]") 
+		.style("font-size", "[(#GET{header_footer_fontSize})]") 
+		.style("font-family", "[(#GET{header_footer_font})]")
+		.text("[(#GET{header_footer_text})]");
 
 	svg.selectAll("dot")
 		.data(json)
 		.enter().append("circle")
 		.attr("class", "circle")
-		.attr("fill", "steelblue")
-		.attr("r", 6)
+		.attr("fill", "[(#GET{bulle_color})]")
+		.attr("r", [(#GET{bulle_corner_border}))
 		.attr("cx", function(d) { return x(d.label); })
 		.attr("cy", function(d) { return y(d.value); })
 		.on("mouseover", function(d) {
@@ -157,6 +176,6 @@
 			div.html(tooltipDate(d.label) + "<br/>"  + d.value)
 				.style("left", (d3.event.pageX) + "px")
 				.style("top", (d3.event.pageY - 28) + "px")
-				.style("z-index", 5000);
+				.style("z-index", [(#GET{bulle_z_index})]);
 		});
 </script>
