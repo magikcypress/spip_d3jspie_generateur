@@ -17,7 +17,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_labels_outer_pieDistance:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" placeholder="32" /></div>
+						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name},32}" placeholder="32" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_labels_outer_pieDistance:></label>
 					</div>
 				</li>
@@ -26,7 +26,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_labels_inner_hideWhenLessThanPercentage:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" placeholder="3" /></div>
+						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name},3}" placeholder="3" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_labels_inner_hideWhenLessThanPercentage:></label>
 					</div>
 				</li>

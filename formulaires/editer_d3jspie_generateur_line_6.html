@@ -1,9 +1,9 @@
 <div class="formulaire_spip formulaire_inscription formulaire_#FORM formulaire_#FORM-#ENV{objet}-#ENV{id,nouveau}  formulaire_#FORM_#ENV{_etape}">
-<h3 class='titrem'><img src="#CHEMIN_IMAGE{d3jspie_generateur-24.png}" class="cadre-icone" /><:d3jspie_generateur:item_utiliser_d3jspie_generateur_bar:> - #ENV{_etape} / #ENV{_etapes}</h3>
+<h3 class='titrem'><img src="#CHEMIN_IMAGE{d3jspie_generateur-24.png}" class="cadre-icone" /><:d3jspie_generateur:item_utiliser_d3jspie_generateur_line:> - #ENV{_etape} / #ENV{_etapes}</h3>
 	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
 	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
 	[(#ENV{editable})
-	<p><:d3jspie_generateur:texte_d3jspie_generateur_bar_etape6:></p>
+	<p><:d3jspie_generateur:texte_d3jspie_generateur_line_etape6:></p>
 	<form method='post' action='#ENV{action}'><div>
 		[(#REM) declarer les hidden qui declencheront le service du formulaire
 		parametre : url d'action ]

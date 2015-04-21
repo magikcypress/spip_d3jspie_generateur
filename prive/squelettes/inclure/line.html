@@ -2,9 +2,9 @@
 	[(#SET{d3jspie_generateur_id,#ID_D3JSPIE_GENERATEUR})]
 	[(#SET{titre,#TITRE})]
 	[(#SET{type,#TYPE})]
-	[(#SET{header_title_text,#HEADER_TITLE_TEXT})]
 	[(#SET{header_title_fontSize,#HEADER_TITLE_FONTSIZE})]
 	[(#SET{header_title_font,#HEADER_TITLE_FONT})]
+	[(#SET{header_title_color,#HEADER_TITLE_COLOR})]
 	[(#SET{header_subtitle_text,#HEADER_SUBTITLE_TEXT})]
 	[(#SET{header_subtitle_color,#HEADER_SUBTITLE_COLOR})]
 	[(#SET{header_subtitle_fontSize,#HEADER_SUBTITLE_FONTSIZE})]
@@ -15,33 +15,20 @@
 	[(#SET{footer_font,#FOOTER_FONT})]
 	[(#SET{footer_location,#FOOTER_LOCATION})]
 	[(#SET{size_canvasWidth,#SIZE_CANVASWIDTH})]
+	[(#SET{size_canvasHeight,#SIZE_CANVASWIDTH})]
+	[(#SET{size_canvasTop,#SIZE_CANVASTOP})]
+	[(#SET{size_canvasBottom,#SIZE_CANVASBOTTOM})]
+	[(#SET{size_canvasRight,#SIZE_CANVASRIGHT})]
+	[(#SET{size_canvasLeft,#SIZE_CANVASLEFT})]
 	[(#SET{data_content_label,#DATA_CONTENT_LABEL})]
 	[(#SET{data_content_value,#DATA_CONTENT_VALUE})]
 	[(#SET{data_content_color,#DATA_CONTENT_COLOR})]
-	[(#SET{labels_outer_pieDistance,#LABELS_OUTER_PIEDISTANCE})]
-	[(#SET{labels_inner_hideWhenLessThanPercentage,#LABELS_INNER_HIDEWHENLESSTHANPERCENTAGE})]
-	[(#SET{labels_mainLabel_color,#LABELS_MAINLABEL_COLOR})]
-	[(#SET{labels_mainLabel_fontSize,#LABELS_MAINLABEL_FONTSIZE})]
-	[(#SET{labels_percentage_color,#LABELS_PERCENTAGE_COLOR})]
-	[(#SET{labels_percentage_decimalPlaces,#LABELS_PERCENTAGE_DECIMALPLACES})]
-	[(#SET{labels_value_fontSize,#LABELS_VALUE_FONTSIZE})]
-	[(#SET{labels_value_color,#LABELS_VALUE_COLOR})]
-	[(#SET{labels_lines_enabled,#LABELS_LINES_ENABLED})]
-	[(#SET{effects_pullOutSegmentOnClick_effect,#EFFECTS_PULLOUTSEGMENTONCLICK_EFFECT})]
-	[(#SET{effects_pullOutSegmentOnClick_speed,#EFFECTS_PULLOUTSEGMENTONCLICK_SPEED})]
-	[(#SET{effects_pullOutSegmentOnClick_size,#EFFECTS_PULLOUTSEGMENTONCLICK_SIZE})]
-	[(#SET{misc_gradient_enabled,#MISC_GRADIENT_ENABLED})]
-	[(#SET{misc_gradient_percentage,#MISC_GRADIENT_PERCENTAGE})]
-	[(#SET{dimension_canvasTop,#DIMENSION_CANVASTOP})]
-	[(#SET{dimension_canvasBottom,#DIMENSION_CANVASBOTTOM})]
-	[(#SET{dimension_canvasRight,#DIMENSION_CANVASRIGHT})]
-	[(#SET{dimension_canvasLeft,#DIMENSION_CANVASLEFT})]
+	[(#SET{rotation_yaxis,#ROTATION_YAXIS})]
 	[(#SET{bulle_background,#BULLE_BACKGROUND})]
 	[(#SET{bulle_border,#BULLE_BORDER})]
 	[(#SET{bulle_color,#BULLE_COLOR})]
 	[(#SET{bulle_corner_border,#BULLE_CORNER_BORDER})]
 	[(#SET{bulle_z_index,#BULLE_Z_INDEX})]
-
 </BOUCLE_DONNEES>
 
 <h1 class="grostitre">[(#GET{titre,#TITRE})]</h1>
@@ -65,7 +52,7 @@
 
 	$(".d3jspie_generateur_ligne").append('<div id="d3jspie_generateur_ligne"></div>');
 
-	var margin = {top: [(#GET{dimension_canvasTop})], right: [(#GET{dimension_canvasRight})], bottom: [(#GET{dimension_canvasBottom})], left: [(#GET{dimension_canvasLeft})]},
+	var margin = {top: [(#GET{size_canvasTop})], right: [(#GET{size_canvasRight})], bottom: [(#GET{size_canvasBottom})], left: [(#GET{size_canvasLeft})]},
 		width = [(#GET{size_canvasWidth})] - margin.left - margin.right,
 		height = [(#GET{size_canvasHeight})] - margin.top - margin.bottom;
 
@@ -163,7 +150,7 @@
 		.enter().append("circle")
 		.attr("class", "circle")
 		.attr("fill", "[(#GET{bulle_color})]")
-		.attr("r", [(#GET{bulle_corner_border}))
+		.attr("r", 6)
 		.attr("cx", function(d) { return x(d.label); })
 		.attr("cy", function(d) { return y(d.value); })
 		.on("mouseover", function(d) {

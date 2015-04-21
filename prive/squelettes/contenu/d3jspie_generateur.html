@@ -2,9 +2,9 @@
 	[(#SET{type,#TYPE})]
 </BOUCLE_DONNEES>
 
-[(#GET{type}|=={pie})
+[(#GET{type}|=={pie}|oui)
 <INCLURE{fond=prive/squelettes/inclure/pie,env,ajax} />]
-[(#GET{type}|=={bar})
+[(#GET{type}|=={bar}|oui)
 <INCLURE{fond=prive/squelettes/inclure/bar,env,ajax} />]
-[(#GET{type}|=={line})
+[(#GET{type}|=={line}|oui)
 <INCLURE{fond=prive/squelettes/inclure/line,env,ajax} />]

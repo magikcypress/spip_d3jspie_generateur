@@ -1,14 +1,13 @@
 <div class="ajax">
+	[(#ENV{type}|=={pie}|oui)
+		#FORMULAIRE_D3JSPIE_GENERATEUR{#ENV{id_d3jspie_generateur},env, ajax}
+	]
 
-[(#ENV{type}|=={pie})
-	#FORMULAIRE_D3JSPIE_GENERATEUR{#ENV{id_d3jspie_generateur},env, ajax}
-]
+	[(#ENV{type}|=={bar}|oui)
+		#FORMULAIRE_D3JSPIE_GENERATEUR_BAR{#ENV{id_d3jspie_generateur},env, ajax}
+	]
 
-[(#ENV{type}|=={bar})
-	#FORMULAIRE_D3JSPIE_GENERATEUR_BAR{#ENV{id_d3jspie_generateur},env, ajax}
-]
-
-[(#ENV{type}|=={line})
-	#FORMULAIRE_D3JSPIE_GENERATEUR_LINE{#ENV{id_d3jspie_generateur},env, ajax}
-]
+	[(#ENV{type}|=={line}|oui)
+		#FORMULAIRE_D3JSPIE_GENERATEUR_LINE{#ENV{id_d3jspie_generateur},env, ajax}
+	]
 </div>

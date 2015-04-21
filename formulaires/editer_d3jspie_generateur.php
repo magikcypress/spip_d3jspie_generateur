@@ -37,7 +37,6 @@ function formulaires_editer_d3jspie_generateur_charger_dist($id_d3jspie_generate
 	} else {
 		$champs = array(
 			'form_titre',
-			'form_header_title_text',
 			'form_header_title_fontSize',
 			'form_header_title_font',
 			'form_header_subtitle_text',
@@ -182,13 +181,12 @@ function formulaires_editer_d3jspie_generateur_verifier_8_dist($id_d3jspie_gener
  *     Retours du traitement
 **/
 function formulaires_editer_d3jspie_generateur_traiter_dist($id_d3jspie_generateur='new', $objet='', $id_objet='', $retour='', $ajaxload='oui', $options=''){
-spip_log(_request('form_labels_lines_enabled'),'test.' . _LOG_ERREUR);
+
 	$set = array();
 	$id_d3jspie_generateur = sql_getfetsel('id_d3jspie_generateur', 'spip_d3jspie_generateur', 'id_d3jspie_generateur=' . intval($id_d3jspie_generateur));
 
 	$set['id_d3jspie_generateur'] = $id_d3jspie_generateur;
 	$set['titre'] = _request('form_titre');
-	$set['header_title_text'] = _request('form_header_title_text');
 	$set['header_title_fontSize'] = _request('form_header_title_fontSize');
 	$set['header_title_font'] = _request('form_header_title_font');
 	$set['header_subtitle_text'] = _request('form_header_subtitle_text');
