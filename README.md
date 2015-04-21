@@ -13,3 +13,4 @@ Créer de bien joli graph avec d3jspie
 #### TODO ####
 
 * Mieux traiter les données à importer, pour le moment rien ne se passe.
+* Simplifier le nombre de formulaire
