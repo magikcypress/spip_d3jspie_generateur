@@ -1,13 +1,16 @@
 <div class="ajax">	
 	<BOUCLE_si_pie(CONDITION){si #ENV{type}|=={pie}}>
 		#FORMULAIRE_EDITER_D3JSPIE_GENERATEUR{#ENV{id_d3jspie_generateur},pie,ajax}
+		<INCLURE{fond=prive/squelettes/inclure/pie.js,env,ajax} />
 	</BOUCLE_si_pie>
 
 	<BOUCLE_si_bar(CONDITION){si #ENV{type}|=={bar}}>
 		#FORMULAIRE_EDITER_D3JSPIE_GENERATEUR_BAR{#ENV{id_d3jspie_generateur},bar,ajax}
+		<INCLURE{fond=prive/squelettes/inclure/bar.js,env,ajax} />
 	</BOUCLE_si_bar>
 
 	<BOUCLE_si_line(CONDITION){si #ENV{type}|=={line}}>
 		#FORMULAIRE_EDITER_D3JSPIE_GENERATEUR_LINE{#ENV{id_d3jspie_generateur},line,ajax}
+		<INCLURE{fond=prive/squelettes/inclure/line.js,env,ajax} />
 	</BOUCLE_si_line>
 </div>

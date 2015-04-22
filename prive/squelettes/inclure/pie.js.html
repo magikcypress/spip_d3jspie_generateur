@@ -1,0 +1,122 @@
+<BOUCLE_DONNEES(D3JSPIE_GENERATEUR){id_d3jspie_generateur}>
+	[(#SET{d3jspie_generateur_id,#ID_D3JSPIE_GENERATEUR})]
+	[(#SET{titre,#TITRE})]
+	[(#SET{type,#TYPE})]
+	[(#SET{header_title_fontSize,#HEADER_TITLE_FONTSIZE})]
+	[(#SET{header_title_font,#HEADER_TITLE_FONT})]
+	[(#SET{header_subtitle_text,#HEADER_SUBTITLE_TEXT})]
+	[(#SET{header_subtitle_color,#HEADER_SUBTITLE_COLOR})]
+	[(#SET{header_subtitle_fontSize,#HEADER_SUBTITLE_FONTSIZE})]
+	[(#SET{header_subtitle_font,#HEADER_SUBTITLE_FONT})]
+	[(#SET{footer_text,#FOOTER_TEXT})]
+	[(#SET{footer_color,#FOOTER_COLOR})]
+	[(#SET{footer_fontSize,#FOOTER_FONTSIZE})]
+	[(#SET{footer_font,#FOOTER_FONT})]
+	[(#SET{footer_location,#FOOTER_LOCATION})]
+	[(#SET{size_canvasWidth,#SIZE_CANVASWIDTH})]
+	[(#SET{data_content_label,#DATA_CONTENT_LABEL})]
+	[(#SET{data_content_value,#DATA_CONTENT_VALUE})]
+	[(#SET{data_content_color,#DATA_CONTENT_COLOR})]
+	[(#SET{labels_outer_pieDistance,#LABELS_OUTER_PIEDISTANCE})]
+	[(#SET{labels_inner_hideWhenLessThanPercentage,#LABELS_INNER_HIDEWHENLESSTHANPERCENTAGE})]
+	[(#SET{labels_mainLabel_color,#LABELS_MAINLABEL_COLOR})]
+	[(#SET{labels_mainLabel_fontSize,#LABELS_MAINLABEL_FONTSIZE})]
+	[(#SET{labels_percentage_color,#LABELS_PERCENTAGE_COLOR})]
+	[(#SET{labels_percentage_decimalPlaces,#LABELS_PERCENTAGE_DECIMALPLACES})]
+	[(#SET{labels_value_fontSize,#LABELS_VALUE_FONTSIZE})]
+	[(#SET{labels_value_color,#LABELS_VALUE_COLOR})]
+	[(#SET{labels_lines_enabled,#LABELS_LINES_ENABLED})]
+	[(#SET{effects_pullOutSegmentOnClick_effect,#EFFECTS_PULLOUTSEGMENTONCLICK_EFFECT})]
+	[(#SET{effects_pullOutSegmentOnClick_speed,#EFFECTS_PULLOUTSEGMENTONCLICK_SPEED})]
+	[(#SET{effects_pullOutSegmentOnClick_size,#EFFECTS_PULLOUTSEGMENTONCLICK_SIZE})]
+	[(#SET{misc_gradient_enabled,#MISC_GRADIENT_ENABLED})]
+	[(#SET{misc_gradient_percentage,#MISC_GRADIENT_PERCENTAGE})]
+</BOUCLE_DONNEES>
+
+	<div id="d3jspie_generateur_pie"></div>
+
+	<script>
+	var pie = new d3pie("d3jspie_generateur_pie", {
+		"header": {
+			"title": {
+				"text": "[(#GET{titre})]",
+				"fontSize": [(#GET{header_title_fontSize})],
+				"font": "[(#GET{header_title_font})]"
+			},
+			"subtitle": {
+				"text": "[(#GET{header_subtitle_text})]",
+				"color": "[(#GET{header_subtitle_color})]",
+				"fontSize": [(#GET{header_subtitle_fontSize})],
+				"font": "[(#GET{header_subtitle_font})]"
+			},
+			"titleSubtitlePadding": 9
+		},
+		"footer": {
+			"text": "[(#GET{footer_text})]",
+			"color": "[(#GET{footer_color})]",
+			"fontSize": [(#GET{footer_fontSize})],
+			"font": "[(#GET{footer_font})]",
+			"location": "[(#GET{footer_location})]"
+		},
+		"size": {
+			"canvasWidth": [(#GET{size_canvasWidth})]
+		},
+		"data": {
+			"sortOrder": "value-desc",
+			"content": [
+				{
+					"label": "[(#GET{data_content_label})]",
+					"value": [(#GET{data_content_value})],
+					"color": "[(#GET{data_content_color})]"
+				},
+				{
+					"label": "PHP",
+					"value": 114384,
+					"color": "#90c469"
+				},
+				{
+					"label": "Python",
+					"value": 95002,
+					"color": "#daca61"
+				}
+			]
+		},
+		"labels": {
+			"outer": {
+				"pieDistance": [(#GET{labels_outer_pieDistance})]
+			},
+			"inner": {
+				"hideWhenLessThanPercentage": [(#GET{labels_inner_hideWhenLessThanPercentage})]
+			},
+			"mainLabel": {
+				"color": "[(#GET{labels_mainLabel_color})]",
+				"fontSize": [(#GET{labels_mainLabel_fontSize})]
+			},
+			"percentage": {
+				"color": "[(#GET{labels_percentage_color})]",
+				"decimalPlaces": [(#GET{labels_percentage_decimalPlaces})]
+			},
+			"value": {
+				"color": "[(#GET{labels_value_color})]",
+				"fontSize": [(#GET{labels_value_fontSize})]
+			},
+			"lines": {
+				"enabled": [(#GET{labels_lines_enabled})]
+			}
+		},
+		"effects": {
+			"pullOutSegmentOnClick": {
+				"effect": "[(#GET{effects_pullOutSegmentOnClick_effect})]",
+				"speed": [(#GET{effects_pullOutSegmentOnClick_speed})],
+				"size": [(#GET{effects_pullOutSegmentOnClick_size})]
+			}
+		},
+		"misc": {
+			"gradient": {
+				"enabled": [(#GET{misc_gradient_enabled})],
+				"percentage": [(#GET{misc_gradient_percentage})]
+			}
+		},
+		"callbacks": {}
+	});
+</script>

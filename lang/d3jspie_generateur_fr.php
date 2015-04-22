@@ -154,6 +154,14 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_d3jspie_generateur_bar_etape6' => 'Position des axes',
 	'texte_d3jspie_generateur_bar_etape7' => 'Affichage des bulles',
 
+	'texte_d3jspie_generateur_line_etape1' => 'Insérer le titre de votre graph',
+	'texte_d3jspie_generateur_line_etape2' => 'Insérer le sous-titre de votre graph',
+	'texte_d3jspie_generateur_line_etape3' => 'Insérer le texte du pied de votre graph',
+	'texte_d3jspie_generateur_line_etape4' => 'Taille de votre graph',
+	'texte_d3jspie_generateur_line_etape5' => 'Données pour votre graph',
+	'texte_d3jspie_generateur_line_etape6' => 'Position des axes',
+	'texte_d3jspie_generateur_line_etape7' => 'Affichage des bulles',
+
 	'titre_page_d3jspie' => 'Créer un graph',
 	'titre_page_liste_d3jspie' => 'Liste des graphs'
 
