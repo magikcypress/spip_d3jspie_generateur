@@ -33,7 +33,7 @@ function formulaires_editer_d3jspie_generateur_line_charger_dist($id_d3jspie_gen
 				$valeurs["form_$cle"] = $valeur;
 			}
 		}
-
+		if(_request('fichier')) $valeurs["fichier"] = _request('fichier');
 	} else {
 		$champs = array(
 			'form_titre',
@@ -54,10 +54,7 @@ function formulaires_editer_d3jspie_generateur_line_charger_dist($id_d3jspie_gen
 			'form_size_canvasTop',
 			'form_size_canvasBottom',
 			'form_size_canvasLeft',
-			'form_size_canvasRight',			
-			'form_data_content_label',
-			'form_data_content_value',
-			'form_data_content_color',
+			'form_size_canvasRight',
 			'form_labels_outer_pieDistance',
 			'form_labels_inner_hideWhenLessThanPercentage',
 			'form_labels_mainLabel_color',
@@ -77,7 +74,8 @@ function formulaires_editer_d3jspie_generateur_line_charger_dist($id_d3jspie_gen
 			'form_bulle_border',
 			'form_bulle_color',
 			'form_bulle_corner_border',
-			'form_bulle_z_index'
+			'form_bulle_z_index',
+			'fichier'
 		);
 
 		foreach ($champs as $cle => $valeur) {
@@ -145,7 +143,49 @@ function formulaires_editer_d3jspie_generateur_line_verifier_4_dist($id_d3jspie_
  *     Tableau des erreurs
 **/
 function formulaires_editer_d3jspie_generateur_line_verifier_5_dist($id_d3jspie_generateur='new', $objet='', $id_objet='', $retour='', $ajaxload='oui', $options=''){
-	$erreurs = array();
+
+	if(_request('_etape') == 5) {
+		include_spip('inc/joindre_document');
+		include_spip('inc/flock');
+
+		$erreurs = array();
+
+		// on joint un document deja dans le site
+		$files = joindre_trouver_fichier_envoye();
+
+		if (is_string($files))
+			$erreurs['form_donnees'] = $files;
+		elseif(is_array($files)){
+			// erreur si on a pas trouve de fichier
+			if (!count($files))
+				$erreurs['form_donnees'] = _T('medias:erreur_aucun_fichier');
+			else{
+				// regarder si on a eu une erreur sur l'upload d'un fichier
+				foreach($files as $file){
+					if (isset($file['error'])
+						AND $test = joindre_upload_error($file['error'])){
+							if (is_string($test))
+								$erreurs['form_donnees'] = $test;
+							else
+								$erreurs['form_donnees'] = _T('medias:erreur_aucun_fichier');
+					}
+				}
+			}
+		}
+
+		if(!isset($erreurs['form_donnees'])) {
+			$tmp_dir = sous_repertoire(_DIR_TMP, 'd3jspie_generateur');
+			if($tmp_dir) {
+				$move_file = move_uploaded_file($files[0]['tmp_name'], $tmp_dir . "/" . $files[0]['name']);
+				if($move_file) 
+					set_request('fichier', $tmp_dir . $files[0]['name']);
+				else
+					$erreurs['form_donnees'] = _T('medias:probleme_creation_fichier');
+			} else {
+				$erreurs['form_donnees'] = _T('medias:aucun_repertoire');
+			}
+		}
+	}
 
 	return $erreurs;
 }
@@ -206,9 +246,6 @@ function formulaires_editer_d3jspie_generateur_line_traiter_dist($id_d3jspie_gen
 	$set['size_canvasRight'] = _request('form_size_canvasRight');
 	$set['size_canvasLeft'] = _request('form_size_canvasLeft');
 	$set['rotation_yaxis'] = _request('form_rotation_yaxis');
-	$set['data_content_label'] = _request('form_data_content_label');
-	$set['data_content_value'] = _request('form_data_content_value');
-	$set['data_content_color'] = _request('form_data_content_color');
 	$set['labels_outer_pieDistance'] = (_request('form_labels_outer_pieDistance')) ? _request('form_labels_outer_pieDistance') : 32;
 	$set['labels_inner_hideWhenLessThanPercentage'] = (_request('form_labels_inner_hideWhenLessThanPercentage')) ? _request('form_labels_inner_hideWhenLessThanPercentage') : 2;
 	$set['labels_mainLabel_color'] = (_request('form_labels_mainLabel_color')) ? _request('form_labels_mainLabel_color') : '';
@@ -237,6 +274,11 @@ function formulaires_editer_d3jspie_generateur_line_traiter_dist($id_d3jspie_gen
 		spip_log($update, 'test.' . _LOG_ERREUR);
 	} else {
 		sql_insertq('spip_d3jspie_generateur', $set);
+	}
+
+	if($fichier = _request('fichier')) {
+		$ajouter_documents = charger_fonction('ajouter_documents', 'action');
+		$nouveaux_doc = $ajouter_documents($id_document,array(array('tmp_name'=> $fichier, 'name' => basename($fichier))),'d3jspie_generateur',$id_d3jspie_generateur,'document');
 	}
 
 	return array('editable' => true, 'message_ok'=>_T('config_info_enregistree'));

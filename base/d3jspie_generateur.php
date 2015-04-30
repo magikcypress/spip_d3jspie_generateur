@@ -20,6 +20,7 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
  */
 function d3jspie_generateur_declarer_tables_interfaces($interfaces) {
 	$interfaces['table_des_tables']['d3jspie_generateur'] = 'd3jspie_generateur';
+	$interfaces['table_des_tables']['d3jspie_generateur_documents']='d3jspie_generateur_documents';
 	
 	return $interfaces;
 }
@@ -57,9 +58,6 @@ function d3jspie_generateur_declarer_tables_objets_sql($tables){
 			"size_canvasRight" => "varchar(255) NOT NULL default ''",
 			"size_canvasLeft" => "varchar(255) NOT NULL default ''",
 			"rotation_yaxis" => "varchar(255) NOT NULL default ''",
-			"data_content_label" => "varchar(255) NOT NULL",
-			"data_content_value" => "varchar(255) NOT NULL",
-			"data_content_color" => "varchar(255) NOT NULL",
 			"labels_outer_pieDistance" => "varchar(255) NOT NULL default ''",
 			"labels_inner_hideWhenLessThanPercentage" => "varchar(255) NOT NULL default ''",
 			"labels_mainLabel_color" => "varchar(255) NOT NULL default ''",
@@ -87,7 +85,37 @@ function d3jspie_generateur_declarer_tables_objets_sql($tables){
 		)
 	);
 
+	$tables_principales['spip_d3jspie_generateur_documents']	=
+		array('field' => &$spip_d3jspie_generateur_documents, 'key' => &$spip_d3jspie_generateur_documents_key);
+
 	return $tables;
+}
+
+/**
+ * Table des liens documents-objets spip_documents_liens
+ * @param array $tables_auxiliaires
+ * @return array
+ */
+function d3jspie_generateur_declarer_tables_auxiliaires($tables_auxiliaires) {
+
+	$spip_d3jspie_generateur_documents = array(
+			"id_document"	=> "bigint(21) DEFAULT '0' NOT NULL",
+			"id_objet"	=> "bigint(21) DEFAULT '0' NOT NULL",
+			"objet"	=> "VARCHAR (25) DEFAULT '' NOT NULL",
+			"vu"	=> "ENUM('non', 'oui') DEFAULT 'non' NOT NULL");
+
+	$spip_d3jspie_generateur_documents_key = array(
+			"PRIMARY KEY"		=> "id_document,id_objet,objet",
+			"KEY id_document"	=> "id_document",
+			"KEY id_objet"	=> "id_objet",
+			"KEY objet"	=> "objet",
+	);
+
+	$tables_auxiliaires['spip_d3jspie_generateur_documents'] = array(
+		'field' => &$spip_d3jspie_generateur_documents,
+		'key' => &$spip_d3jspie_generateur_documents_key);
+
+	return $tables_auxiliaires;
 }
 
 ?>

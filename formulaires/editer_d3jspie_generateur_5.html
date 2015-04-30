@@ -4,39 +4,22 @@
 	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
 	[(#ENV{editable})
 	<p><:d3jspie_generateur:texte_d3jspie_generateur_etape5:></p>
-	<form method='post' action='#ENV{action}'><div>
+	<form method='post' action='#ENV{action}' enctype='multipart/form-data'><div>
 		[(#REM) declarer les hidden qui declencheront le service du formulaire
 		parametre : url d'action ]
-		#ACTION_FORMULAIRE{#ENV{action}}
-	]
+			#ACTION_FORMULAIRE{#ENV{action}}
+		]
 		<ul>
 			[(#ENV{editable})
 			<span class="input">
-				#SET{name,form_data_content_label}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
+				<input type="hidden" name="joindre_upload" value="on" />
+				#SET{name,form_donnees}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
 				<li class="editer long_label editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
-					<label for="#GET{name}"><:d3jspie_generateur:form_data_content_label:></label>[
+					<label for="#GET{name}"><:d3jspie_generateur:form_donnees:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
-						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_data_content_label:></label>
-					</div>
-				</li>
-				#SET{name,form_data_content_value}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
-				<li class="editer long_label editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
-					<label for="#GET{name}"><:d3jspie_generateur:form_data_content_value:></label>[
-					<span class='erreur_message'>(#GET{erreurs})</span>
-					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
-						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_data_content_value:></label>
-					</div>
-				</li>
-				#SET{name,form_data_content_color}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
-				<li class="editer long_label editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
-					<label for="#GET{name}"><:d3jspie_generateur:form_data_content_color:></label>[
-					<span class='erreur_message'>(#GET{erreurs})</span>
-					]<div class="choix">
-						<div><input type="text" class="palette" name="#GET{name}" value="#ENV{#GET{name},#FFFFFF}" /></div>
-						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_data_content_color:></label>
+						<div><input type="file" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
+						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_donnees:></label>
 					</div>
 				</li>
 			</span>]

@@ -14,9 +14,6 @@
 	[(#SET{footer_font,#FOOTER_FONT})]
 	[(#SET{footer_location,#FOOTER_LOCATION})]
 	[(#SET{size_canvasWidth,#SIZE_CANVASWIDTH})]
-	[(#SET{data_content_label,#DATA_CONTENT_LABEL})]
-	[(#SET{data_content_value,#DATA_CONTENT_VALUE})]
-	[(#SET{data_content_color,#DATA_CONTENT_COLOR})]
 	[(#SET{labels_outer_pieDistance,#LABELS_OUTER_PIEDISTANCE})]
 	[(#SET{labels_inner_hideWhenLessThanPercentage,#LABELS_INNER_HIDEWHENLESSTHANPERCENTAGE})]
 	[(#SET{labels_mainLabel_color,#LABELS_MAINLABEL_COLOR})]
@@ -33,9 +30,14 @@
 	[(#SET{misc_gradient_percentage,#MISC_GRADIENT_PERCENTAGE})]
 </BOUCLE_DONNEES>
 
-	<div id="d3jspie_generateur_pie"></div>
+<BOUCLE_tous (DOCUMENTS types_documents){objet=d3jspie_generateur}{id_objet=#ENV{id_d3jspie_generateur}}{tout}>
+	[(#SET{fichier,#INCLURE{#FICHIER}})]
+</BOUCLE_tous>
 
-	<script>
+<div id="d3jspie_generateur_pie"></div>
+
+<script>
+
 	var pie = new d3pie("d3jspie_generateur_pie", {
 		"header": {
 			"title": {
@@ -63,23 +65,7 @@
 		},
 		"data": {
 			"sortOrder": "value-desc",
-			"content": [
-				{
-					"label": "[(#GET{data_content_label})]",
-					"value": [(#GET{data_content_value})],
-					"color": "[(#GET{data_content_color})]"
-				},
-				{
-					"label": "PHP",
-					"value": 114384,
-					"color": "#90c469"
-				},
-				{
-					"label": "Python",
-					"value": 95002,
-					"color": "#daca61"
-				}
-			]
+			"content": [(#GET{fichier})]
 		},
 		"labels": {
 			"outer": {

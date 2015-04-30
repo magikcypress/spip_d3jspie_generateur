@@ -20,9 +20,6 @@
 	[(#SET{size_canvasBottom,#SIZE_CANVASBOTTOM})]
 	[(#SET{size_canvasRight,#SIZE_CANVASRIGHT})]
 	[(#SET{size_canvasLeft,#SIZE_CANVASLEFT})]
-	[(#SET{data_content_label,#DATA_CONTENT_LABEL})]
-	[(#SET{data_content_value,#DATA_CONTENT_VALUE})]
-	[(#SET{data_content_color,#DATA_CONTENT_COLOR})]
 	[(#SET{rotation_yaxis,#ROTATION_YAXIS})]
 	[(#SET{bulle_background,#BULLE_BACKGROUND})]
 	[(#SET{bulle_border,#BULLE_BORDER})]
@@ -31,18 +28,14 @@
 	[(#SET{bulle_z_index,#BULLE_Z_INDEX})]
 </BOUCLE_DONNEES>
 
+<BOUCLE_tous (DOCUMENTS types_documents){objet=d3jspie_generateur}{id_objet=#ENV{id_d3jspie_generateur}}{tout}>
+	[(#SET{fichier,#INCLURE{#FICHIER}})]
+</BOUCLE_tous>
+
 <div class="d3jspie_generateur_ligne"></div>
 
 <script>
-	var json = [
-		{label: "1-May-12",  value:  8631},
-		{label: "30-Apr-12",  value:  8712},
-		{label: "27-Apr-12",  value:  8812},
-		{label: "26-Apr-12",  value:  8712},
-		{label: "25-Apr-12",  value:  8612},
-		{label: "24-Apr-12",  value:  8712},
-		{label: "23-Apr-12",  value:  8722}
-	];
+	var json = [(#GET{fichier})];
 
 	$(".d3jspie_generateur_ligne").append('<div id="d3jspie_generateur_ligne"></div>');
 

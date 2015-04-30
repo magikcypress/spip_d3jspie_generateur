@@ -11,7 +11,6 @@
 
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
-
 /**
  * Afficher d3jspie_generateur milieu page site
  * @param array $flux

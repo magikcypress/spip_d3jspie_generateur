@@ -37,9 +37,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'form_size_canvasleft' => 'Marge gauche du graph',
 	'form_size_canvasright' => 'Marge droite du graph',
 
-	'form_data_content_label' => 'Label',
-	'form_data_content_value' => 'Valeur',
-	'form_data_content_color' => 'Couleur',
+	'form_donnees' => 'Envoyer votre fichier de données au format json',
 
 	'form_labels_outer_piedistance' => 'Distance du label',
 	'form_labels_inner_hidewhenlessthanpercentage' => 'Transparence du label en %',
@@ -130,6 +128,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'item_utiliser_bulle_z_index' => 'Z-index des bulles',
 
 	'item_utiliser_rotation_yaxis' => 'Rotation du titre pour l\'axe y',
+
+	'item_utiliser_donnees_pie' => '',
+	'item_utiliser_donnees_bar' => '',
+	'item_utiliser_donnees_line' => '',
 
 	'liste_titre' => 'Titre du graph',
 	'liste_type' => 'Type de graph',

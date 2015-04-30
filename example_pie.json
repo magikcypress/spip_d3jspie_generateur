@@ -1,0 +1,17 @@
+[
+     {
+        "label": "PERL",
+        "value": 120000,
+        "color": "#336699"
+     },
+     {
+        "label": "PHP",
+        "value": 114384,
+        "color": "#90c469"
+     },
+     {
+        "label": "Python",
+        "value": 95002,
+        "color": "#daca61"
+     }
+]

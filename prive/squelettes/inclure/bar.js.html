@@ -20,9 +20,6 @@
 	[(#SET{size_canvasBottom,#SIZE_CANVASBOTTOM})]
 	[(#SET{size_canvasRight,#SIZE_CANVASRIGHT})]
 	[(#SET{size_canvasLeft,#SIZE_CANVASLEFT})]
-	[(#SET{data_content_label,#DATA_CONTENT_LABEL})]
-	[(#SET{data_content_value,#DATA_CONTENT_VALUE})]
-	[(#SET{data_content_color,#DATA_CONTENT_COLOR})]
 	[(#SET{rotation_yaxis,#ROTATION_YAXIS})]
 	[(#SET{bulle_background,#BULLE_BACKGROUND})]
 	[(#SET{bulle_border,#BULLE_BORDER})]
@@ -31,14 +28,15 @@
 	[(#SET{bulle_z_index,#BULLE_Z_INDEX})]
 </BOUCLE_DONNEES>
 
+<BOUCLE_tous (DOCUMENTS types_documents){objet=d3jspie_generateur}{id_objet=#ENV{id_d3jspie_generateur}}{tout}>
+	[(#SET{fichier,#INCLURE{#FICHIER}})]
+</BOUCLE_tous>
+
 <div class="d3jspie_generateur_bar"></div>
 
 <script>
-	var json = [
-		{label: "PERL",  value:  124384, color: "#CCCCCC"},
-		{label: "PHP",  value:  114384, color: "#90c469"},
-		{label: "Python",  value:  95002, color: "#daca61"}
-	];
+
+	var json = [(#GET{fichier})];
 
 	$(".d3jspie_generateur_bar").append('<div id="d3jspie_generateur_bar"></div>');
 

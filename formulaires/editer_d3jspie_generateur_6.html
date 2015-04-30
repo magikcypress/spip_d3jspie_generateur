@@ -12,6 +12,7 @@
 		<ul>
 			[(#ENV{editable})
 			<span class="input">
+				<input type="hidden" name="fichier" value="#ENV{fichier}" />
 				#SET{name,form_labels_outer_pieDistance}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
 				<li class="editer long_label editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
 					<label for="#GET{name}"><:d3jspie_generateur:form_labels_outer_pieDistance:></label>[

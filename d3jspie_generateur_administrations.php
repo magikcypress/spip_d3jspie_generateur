@@ -23,7 +23,7 @@ function d3jspie_generateur_upgrade($nom_meta_base_version,$version_cible){
 	$maj = array();
 
 	$maj['create'] = array(
-		array('maj_tables', array('spip_d3jspie_generateur'))
+		array('maj_tables', array('spip_d3jspie_generateur', 'spip_d3jspie_generateur_documents'))
 	);
 
 	include_spip('base/upgrade');
@@ -38,6 +38,7 @@ function d3jspie_generateur_upgrade($nom_meta_base_version,$version_cible){
 function d3jspie_generateur_vider_tables($nom_meta_base_version) {
 
 	sql_drop_table("spip_d3jspie_generateur");
+	sql_drop_table("spip_d3jspie_generateur_documents");
 	effacer_meta("d3jspie_generateur");
 	effacer_meta($nom_meta_base_version);
 }
