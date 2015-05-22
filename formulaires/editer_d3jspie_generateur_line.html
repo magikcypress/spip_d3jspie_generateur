@@ -26,7 +26,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_header_title_fontsize:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
+						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name},20}" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_header_title_fontsize:></label>
 					</div>
 				</li>
@@ -35,7 +35,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_header_title_color:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" class="palette" name="#GET{name}" value="#ENV{#GET{name},#FFFFFF}" /></div>
+						<div><input type="text" class="palette" name="#GET{name}" value="#ENV{#GET{name},#333333}" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_header_title_color:></label>
 					</div>
 				</li>

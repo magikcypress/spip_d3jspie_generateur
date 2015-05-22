@@ -18,7 +18,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_bulle_background:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" class="palette" name="#GET{name}" value="#ENV{#GET{name},#FFFFFF}" /></div>
+						<div><input type="text" class="palette" name="#GET{name}" value="#ENV{#GET{name},#333333}" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_bulle_background:></label>
 					</div>
 				</li>
@@ -27,7 +27,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_bulle_border:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
+						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name},1}" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_bulle_border:></label>
 					</div>
 				</li>
@@ -36,7 +36,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_bulle_color:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" class="palette" name="#GET{name}" value="#ENV{#GET{name},#FFFFFF}" /></div>
+						<div><input type="text" class="palette" name="#GET{name}" value="#ENV{#GET{name},#333333}" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_bulle_color:></label>
 					</div>
 				</li>
@@ -45,7 +45,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_bulle_corner_border:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
+						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name},2}" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_bulle_corner_border:></label>
 					</div>
 				</li>
@@ -54,7 +54,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_bulle_z_index:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
+						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name},50}" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_bulle_z_index:></label>
 					</div>
 				</li>

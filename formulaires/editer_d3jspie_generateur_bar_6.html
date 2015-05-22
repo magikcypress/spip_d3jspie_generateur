@@ -17,7 +17,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_rotation_yaxis:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
+						<div><input type="range" name="#GET{name}" id="#GET{name}" value="#ENV{#GET{name},-90}" max="0" min="-360" step="3" /><span class="range_valeur">#ENV{#GET{name}}</span></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_rotation_yaxis:></label>
 					</div>
 				</li>
@@ -34,3 +34,14 @@
 </div>
 
 <INCLURE{fond=prive/squelettes/inclure/bar.js,env,ajax} />
+
+<script type="text/javascript">
+	$(function(){
+		$("#form_rotation_yaxis").after('<span class="range_valeur_courante"></span>');
+		$("#form_rotation_yaxis").live('change', function(){
+			$('span.range_valeur').remove();
+			var valof = $(this).val();
+			$('span.range_valeur_courante').text(valof);
+		});
+	});
+</script>
