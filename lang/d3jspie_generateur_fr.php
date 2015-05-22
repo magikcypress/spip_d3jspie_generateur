@@ -100,10 +100,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'item_utiliser_size_canvasleft' => 'Marge gauche du graph',
 	'item_utiliser_size_canvasright' => 'Marge droite du graph',
 
-	'item_utiliser_data_content_label' => 'Label',
-	'item_utiliser_data_content_value' => 'Valeur',
-	'item_utiliser_data_content_color' => 'Couleur',
-
 	'item_utiliser_labels_outer_piedistance' => 'Distance du label',
 	'item_utiliser_labels_inner_hidewhenlessthanpercentage' => 'Transparence du label en %',
 	'item_utiliser_labels_mainlabel_color' => 'Couleur des labels',
@@ -112,13 +108,16 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'item_utiliser_labels_percentage_decimalplaces' => 'Décimales pour les parts',
 	'item_utiliser_labels_value_fontsize' => 'Taille de la police pour les valeurs',
 	'item_utiliser_labels_value_color' => 'Couleur pour les valeurs',
-	'item_utiliser_labels_lines_enabled' => 'Afficher les lignes des labels',
+	'item_utiliser_labels_lines_enabled' => 'Activer les lignes des labels',
+	'item_utiliser_labels_lines_disabled' => 'Désactiver les lignes des labels',
 
-	'item_utiliser_effects_pulloutsegmentonclick_effect' => 'Effet au chargement',
+	'item_utiliser_effects_pulloutsegmentonclick_effect_enabled' => 'Activer l\'effet au chargement',
+	'item_utiliser_effects_pulloutsegmentonclick_effect_disabled' => 'Désactiver l\'effet au chargement',
 	'item_utiliser_effects_pulloutsegmentonclick_speed' => 'Vitesse de chargement',
 	'item_utiliser_effects_pulloutsegmentonclick_size' => 'Mouvement de la part',
 
-	'item_utiliser_misc_gradient_enabled' => 'Activer misc couleurs',
+	'item_utiliser_misc_gradient_enabled' => 'Activer la couleur de fond',
+	'item_utiliser_misc_gradient_disabled' => 'Désactiver la couleur de fond',
 	'item_utiliser_misc_gradient_percentage' => 'Pourcentage misc couleurs',
 
 	'item_utiliser_bulle_background' => 'Couleur du fond des bulles',
@@ -129,10 +128,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	'item_utiliser_rotation_yaxis' => 'Rotation du titre pour l\'axe y',
 
-	'item_utiliser_donnees_pie' => '',
-	'item_utiliser_donnees_bar' => '',
-	'item_utiliser_donnees_line' => '',
-
+	'item_utiliser_donnees' => 'Les données que vous allez insérer doivent être sous format json.',
+	'item_utiliser_donnees_complement' => 'Vous pouvez consulter le modèle de données json dans les fichiers d\'exemple disponible à la racine du plugin',
+	
 	'liste_titre' => 'Titre du graph',
 	'liste_type' => 'Type de graph',
 	'liste_date_modif' => 'Date de modification',
@@ -146,7 +144,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_d3jspie_generateur_etape5' => 'Données pour votre graph',
 	'texte_d3jspie_generateur_etape6' => 'Définition des parts',
 	'texte_d3jspie_generateur_etape7' => 'Les labels',
-	'texte_d3jspie_generateur_etape8' => 'Effects et misc couleur',
+	'texte_d3jspie_generateur_etape8' => 'Effects et couleur de fond',
 
 	'texte_d3jspie_generateur_bar_etape1' => 'Insérer le titre de votre graph',
 	'texte_d3jspie_generateur_bar_etape2' => 'Insérer le sous-titre de votre graph',

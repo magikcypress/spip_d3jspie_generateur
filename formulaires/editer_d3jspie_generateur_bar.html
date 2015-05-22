@@ -17,7 +17,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_header_title_text:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" /></div>	
+						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_titre:></label>
 					</div>
 				</li>
@@ -50,3 +50,5 @@
 	</div></form>
 	]
 </div>
+
+<INCLURE{fond=prive/squelettes/inclure/bar.js,env,ajax} />

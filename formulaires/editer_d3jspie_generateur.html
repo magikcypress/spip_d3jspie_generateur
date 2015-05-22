@@ -10,8 +10,6 @@
 		#ACTION_FORMULAIRE{#ENV{action}}
 	]
 		<ul>
-			[(#SAISIE{hidden,objet})]
-            [(#SAISIE{hidden,id_objet})]
 			[(#ENV{editable})
 			<span class="input">
 				#SET{name,form_titre}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
@@ -28,7 +26,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_header_title_fontsize:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
+						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name},20}" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_header_title_fontsize:></label>
 					</div>
 				</li>
@@ -68,3 +66,5 @@
 	</div></form>
 	]
 </div>
+
+<INCLURE{fond=prive/squelettes/inclure/pie.js,env,ajax} />

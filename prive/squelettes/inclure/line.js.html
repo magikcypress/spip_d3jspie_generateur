@@ -1,4 +1,11 @@
-<BOUCLE_DONNEES(D3JSPIE_GENERATEUR){id_d3jspie_generateur}>
+[(#ENV{form_id_d3jspie_generateur}|oui)
+	#SET{'id_d3js', #ENV{form_id_d3jspie_generateur}}
+]
+[(#ENV{form_id_d3jspie_generateur}|non)
+	#SET{'id_d3js', #ENV{id_d3jspie_generateur}}
+]
+
+<BOUCLE_DONNEES(D3JSPIE_GENERATEUR){id_d3jspie_generateur=#GET{id_d3js}}>
 	[(#SET{d3jspie_generateur_id,#ID_D3JSPIE_GENERATEUR})]
 	[(#SET{titre,#TITRE})]
 	[(#SET{type,#TYPE})]
@@ -28,7 +35,7 @@
 	[(#SET{bulle_z_index,#BULLE_Z_INDEX})]
 </BOUCLE_DONNEES>
 
-<BOUCLE_tous (DOCUMENTS types_documents){objet=d3jspie_generateur}{id_objet=#ENV{id_d3jspie_generateur}}{tout}>
+<BOUCLE_tous (DOCUMENTS types_documents){objet=d3jspie_generateur}{id_objet=#GET{id_d3js}}{tout}>
 	[(#SET{fichier,#INCLURE{#FICHIER}})]
 </BOUCLE_tous>
 

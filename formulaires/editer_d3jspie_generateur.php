@@ -33,7 +33,7 @@ function formulaires_editer_d3jspie_generateur_charger_dist($id_d3jspie_generate
 		foreach ($d3jspie_generateur as $cle => $valeur) {
 				$valeurs["form_$cle"] = $valeur;
 		}
-		if(_request('fichier')) $valeurs["fichier"] = _request('fichier');
+		if(_request('fichier')) $valeurs["form_donnees"] = _request('fichier');
 	} else {
 		$champs = array(
 			'form_titre',

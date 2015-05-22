@@ -19,7 +19,7 @@
 				<span class='erreur_message'>(#GET{erreurs})</span>
 				]<div class="choix">
 					<div><input type="file" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
-					<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_donnees:></label>
+					<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_donnees:><p><:d3jspie_generateur:item_utiliser_donnees_complement:></p></label>
 				</div>
 			</li>
 		</span>]
@@ -33,3 +33,5 @@
 	</div></form>
 	]
 </div>
+
+<INCLURE{fond=prive/squelettes/inclure/line.js,env,ajax} />

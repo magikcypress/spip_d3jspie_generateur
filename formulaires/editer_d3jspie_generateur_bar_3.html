@@ -68,7 +68,13 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_footer_location:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" placeholder="bottom-center" /></div>
+						<select id="#GET{name}" name="#GET{name}">
+							<optgroup label="Position du pied de page">
+								<option value="bottom-left" [(#ENV{#GET{name}}|=={'bottom-left'}|oui)selected="checked"]>bottom-left</option>
+								<option value="bottom-center" [(#ENV{#GET{name}}|=={'bottom-center'}|oui)selected="checked"]>bottom-center</option>
+								<option value="bottom-right" [(#ENV{#GET{name}}|=={'bottom-right'}|oui)selected="checked"]>bottom-right</option>
+							</optgroup>
+						</select>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_footer_location:></label>
 					</div>
 				</li>
@@ -83,3 +89,5 @@
 	</div></form>
 	]
 </div>
+
+<INCLURE{fond=prive/squelettes/inclure/bar.js,env,ajax} />

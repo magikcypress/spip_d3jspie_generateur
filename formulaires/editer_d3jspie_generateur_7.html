@@ -18,7 +18,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_labels_mainLabel_color:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" class="palette" name="#GET{name}" value="#ENV{#GET{name},#FFFFFF}" /></div>
+						<div><input type="text" class="palette" name="#GET{name}" value="#ENV{#GET{name},#333333}" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_labels_mainLabel_color:></label>
 					</div>
 				</li>
@@ -27,17 +27,8 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_labels_mainLabel_fontSize:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
+						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name},12}" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_labels_mainLabel_fontSize:></label>
-					</div>
-				</li>
-				#SET{name,form_labels_mainLabel_color}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
-				<li class="editer long_label editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
-					<label for="#GET{name}"><:d3jspie_generateur:form_labels_mainLabel_color:></label>[
-					<span class='erreur_message'>(#GET{erreurs})</span>
-					]<div class="choix">
-						<div><input type="text" class="palette" name="#GET{name}" value="#ENV{#GET{name},#FFFFFF}" /></div>
-						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_labels_mainLabel_color:></label>
 					</div>
 				</li>
 				#SET{name,form_labels_percentage_decimalPlaces}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
@@ -45,7 +36,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_labels_percentage_decimalPlaces:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" placeholder="0" /></div>
+						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name},0}" placeholder="0" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_labels_percentage_decimalPlaces:></label>
 					</div>
 				</li>
@@ -54,7 +45,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_labels_value_fontSize:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
+						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name},12}" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_labels_value_fontSize:></label>
 					</div>
 				</li>
@@ -63,7 +54,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_labels_value_color:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" class="palette" name="#GET{name}" value="#ENV{#GET{name},#FFFFFF}" /></div>
+						<div><input type="text" class="palette" name="#GET{name}" value="#ENV{#GET{name},#333333}" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_labels_value_color:></label>
 					</div>
 				</li>
@@ -71,9 +62,14 @@
 				<li class="editer long_label editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
 					<label for="#GET{name}"><:d3jspie_generateur:form_labels_lines_enabled:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
-					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
-						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_labels_lines_enabled:></label>
+					]
+					<div class="choix">
+						<input type="radio" name="#GET{name}" id="#GET{name}_oui" value="true"
+						[(#ENV{#GET{name}}|=={true}|oui)checked="checked"] /><label for="#GET{name}_oui"><:d3jspie_generateur:item_utiliser_labels_lines_enabled:></label>
+					</div>
+					<div class="choix">
+						<input type="radio" name="#GET{name}" id="#GET{name}_non" value="false"
+						[(#ENV{#GET{name}}|=={false}|non)checked="checked"] /><label for="#GET{name}_non"><:d3jspie_generateur:item_utiliser_labels_lines_disabled:></label>
 					</div>
 				</li>
 			</span>]
@@ -87,3 +83,5 @@
 	</div></form>
 	]
 </div>
+
+<INCLURE{fond=prive/squelettes/inclure/pie.js,env,ajax} />

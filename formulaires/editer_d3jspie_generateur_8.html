@@ -17,9 +17,14 @@
 				<li class="editer long_label editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
 					<label for="#GET{name}"><:d3jspie_generateur:form_effects_pulloutsegmentonclick_effect:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
-					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
-						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_effects_pulloutsegmentonclick_effect:></label>
+					]
+					<div class="choix">
+						<input type="radio" name="#GET{name}" id="#GET{name}_oui" value="true"
+						[(#ENV{#GET{name}}|=={oui}|oui)checked="checked"] /><label for="#GET{name}_oui"><:d3jspie_generateur:item_utiliser_effects_pulloutsegmentonclick_effect_enabled:></label>
+					</div>
+					<div class="choix">
+						<input type="radio" name="#GET{name}" id="#GET{name}_non" value="false"
+						[(#ENV{#GET{name}}|=={oui}|non)checked="checked"] /><label for="#GET{name}_non"><:d3jspie_generateur:item_utiliser_effects_pulloutsegmentonclick_effect_disabled:></label>
 					</div>
 				</li>
 				#SET{name,form_effects_pullOutSegmentOnClick_speed}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
@@ -27,7 +32,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_effects_pulloutsegmentonclick_speed:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
+						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name},2000}" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_effects_pulloutsegmentonclick_speed:></label>
 					</div>
 				</li>
@@ -36,7 +41,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_effects_pulloutsegmentonclick_size:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
+						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name},10}" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_effects_pulloutsegmentonclick_size:></label>
 					</div>
 				</li>
@@ -44,9 +49,14 @@
 				<li class="editer long_label editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
 					<label for="#GET{name}"><:d3jspie_generateur:form_misc_gradient_enabled:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
-					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
-						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_misc_gradient_enabled:></label>
+					]
+					<div class="choix">
+						<input type="radio" name="#GET{name}" id="#GET{name}_oui" value="true"
+						[(#ENV{#GET{name}}|=={true}|oui)checked="checked"] /><label for="#GET{name}_oui"><:d3jspie_generateur:item_utiliser_misc_gradient_enabled:></label>
+					</div>
+					<div class="choix">
+						<input type="radio" name="#GET{name}" id="#GET{name}_non" value="false"
+						[(#ENV{#GET{name}}|=={false}|oui)checked="checked"] /><label for="#GET{name}_non"><:d3jspie_generateur:item_utiliser_misc_gradient_disabled:></label>
 					</div>
 				</li>
 				#SET{name,form_misc_gradient_percentage}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
@@ -54,7 +64,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_misc_gradient_percentage:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
+						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name},100}" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_misc_gradient_percentage:></label>
 					</div>
 				</li>
@@ -65,7 +75,9 @@
 	[(#REM) ajouter les saisies supplementaires : extra et autre, a cet endroit ]
 	<!--extra-->
 	<p class='boutons'><span class='image_loading'>&nbsp;</span>
-		<input type="submit" class="submit" value="<:bouton_enregistrer:>" /></p>
+		<input type="submit" class="submit" value="<:bouton_enregister:>" /></p>
 	</div></form>
 	]
 </div>
+
+<INCLURE{fond=prive/squelettes/inclure/pie.js,env,ajax} />

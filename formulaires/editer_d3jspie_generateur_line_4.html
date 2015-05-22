@@ -17,7 +17,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_size_canvasWidth:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
+						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name},660}" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_size_canvasWidth:></label>
 					</div>
 				</li>
@@ -26,7 +26,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_size_canvasHeight:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
+						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name},300}" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_size_canvasHeight:></label>
 					</div>
 				</li>
@@ -35,7 +35,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_size_canvasTop:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
+						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name},60}" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_size_canvasTop:></label>
 					</div>
 				</li>
@@ -44,7 +44,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_size_canvasBottom:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
+						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name},30}" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_size_canvasBottom:></label>
 					</div>
 				</li>
@@ -53,7 +53,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_size_canvasLeft:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
+						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name},60}" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_size_canvasLeft:></label>
 					</div>
 				</li>
@@ -62,7 +62,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_size_canvasRight:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
+						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name},60}" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_size_canvasRight:></label>
 					</div>
 				</li>
@@ -77,3 +77,5 @@
 	</div></form>
 	]
 </div>
+
+<INCLURE{fond=prive/squelettes/inclure/line.js,env,ajax} />

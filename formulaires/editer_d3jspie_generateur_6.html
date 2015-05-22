@@ -27,7 +27,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_labels_inner_hideWhenLessThanPercentage:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name},3}" placeholder="3" /></div>
+						<div><input type="range" name="#GET{name}" id="#GET{name}" value="#ENV{#GET{name},3}" max="350" min="0" step="3" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_labels_inner_hideWhenLessThanPercentage:></label>
 					</div>
 				</li>
@@ -42,3 +42,15 @@
 	</div></form>
 	]
 </div>
+
+<script type="text/javascript">
+	$(function(){
+		$("#form_labels_inner_hideWhenLessThanPercentage").after('<output></output>');
+		$("#form_labels_inner_hideWhenLessThanPercentage").live('change', function(){
+			var valof = $(this).val();
+			$('output').text(valof);
+		});
+	});
+</script>
+
+<INCLURE{fond=prive/squelettes/inclure/pie.js,env,ajax} />

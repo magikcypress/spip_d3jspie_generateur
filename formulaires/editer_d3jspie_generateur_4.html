@@ -17,7 +17,7 @@
 					<label for="#GET{name}"><:d3jspie_generateur:form_size_canvasWidth:></label>[
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
-						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
+						<div><input type="text" name="#GET{name}" value="#ENV{#GET{name},660}" /></div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_size_canvasWidth:></label>
 					</div>
 				</li>
@@ -32,3 +32,5 @@
 	</div></form>
 	]
 </div>
+
+<INCLURE{fond=prive/squelettes/inclure/pie.js,env,ajax} />
