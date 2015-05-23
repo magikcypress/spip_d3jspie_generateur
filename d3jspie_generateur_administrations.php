@@ -26,6 +26,11 @@ function d3jspie_generateur_upgrade($nom_meta_base_version,$version_cible){
 		array('maj_tables', array('spip_d3jspie_generateur', 'spip_d3jspie_generateur_documents'))
 	);
 
+	$maj['0.0.2'] = array(	
+		// Ajout de champs dans spip_syndic
+	 	array('maj_tables', array('spip_d3jspie_generateur'))
+	);
+
 	include_spip('base/upgrade');
 	maj_plugin($nom_meta_base_version, $version_cible, $maj);
 }

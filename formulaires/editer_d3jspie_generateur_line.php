@@ -70,6 +70,7 @@ function formulaires_editer_d3jspie_generateur_line_charger_dist($id_d3jspie_gen
 			'form_misc_gradient_enabled',
 			'form_misc_gradient_percentage',
 			'form_rotation_yaxis',
+			'form_titre_yaxis',
 			'form_bulle_background',
 			'form_bulle_border',
 			'form_bulle_color',
@@ -246,6 +247,7 @@ function formulaires_editer_d3jspie_generateur_line_traiter_dist($id_d3jspie_gen
 	$set['size_canvasRight'] = _request('form_size_canvasRight');
 	$set['size_canvasLeft'] = _request('form_size_canvasLeft');
 	$set['rotation_yaxis'] = _request('form_rotation_yaxis');
+	$set['titre_yaxis'] = _request('form_titre_yaxis');
 	$set['labels_outer_pieDistance'] = (_request('form_labels_outer_pieDistance')) ? _request('form_labels_outer_pieDistance') : 32;
 	$set['labels_inner_hideWhenLessThanPercentage'] = (_request('form_labels_inner_hideWhenLessThanPercentage')) ? _request('form_labels_inner_hideWhenLessThanPercentage') : 2;
 	$set['labels_mainLabel_color'] = (_request('form_labels_mainLabel_color')) ? _request('form_labels_mainLabel_color') : '';

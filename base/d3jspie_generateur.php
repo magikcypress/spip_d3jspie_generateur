@@ -58,6 +58,7 @@ function d3jspie_generateur_declarer_tables_objets_sql($tables){
 			"size_canvasRight" => "varchar(255) NOT NULL default ''",
 			"size_canvasLeft" => "varchar(255) NOT NULL default ''",
 			"rotation_yaxis" => "varchar(255) NOT NULL default ''",
+			"titre_yaxis" => "varchar(255) NOT NULL default ''",
 			"labels_outer_pieDistance" => "varchar(255) NOT NULL default ''",
 			"labels_inner_hideWhenLessThanPercentage" => "varchar(255) NOT NULL default ''",
 			"labels_mainLabel_color" => "varchar(255) NOT NULL default ''",

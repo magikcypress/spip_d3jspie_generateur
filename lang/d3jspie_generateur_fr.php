@@ -62,6 +62,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'form_bulle_corner_border' => 'Arrondi des coins des bulles',
 	'form_bulle_z_index' => 'Z-index des bulles',
 
+	'form_titre_yaxis' => 'Titre pour l\'axe y',
 	'form_rotation_yaxis' => 'Rotation du titre pour l\'axe y',
 
 	// I
@@ -126,7 +127,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'item_utiliser_bulle_corner_border' => 'Arrondi des coins des bulles',
 	'item_utiliser_bulle_z_index' => 'Z-index des bulles',
 
-	'item_utiliser_rotation_yaxis' => 'Rotation du titre pour l\'axe y',
+	'item_utiliser_titre_yaxis' => 'Indiquer un titre pour l\'axe y',
+	'item_utiliser_rotation_yaxis' => 'Indiquer la rotation du titre pour l\'axe y (par défaut -90)',
 
 	'item_utiliser_donnees' => 'Les données que vous allez insérer doivent être sous format json.',
 	'item_utiliser_donnees_complement' => 'Vous pouvez consulter le modèle de données json dans les fichiers d\'exemple disponible à la racine du plugin',

@@ -27,6 +27,7 @@
 	[(#SET{size_canvasBottom,#SIZE_CANVASBOTTOM})]
 	[(#SET{size_canvasRight,#SIZE_CANVASRIGHT})]
 	[(#SET{size_canvasLeft,#SIZE_CANVASLEFT})]
+	[(#SET{titre_yaxis,#TITRE_YAXIS})]
 	[(#SET{rotation_yaxis,#ROTATION_YAXIS})]
 	[(#SET{bulle_background,#BULLE_BACKGROUND})]
 	[(#SET{bulle_border,#BULLE_BORDER})]
@@ -105,7 +106,7 @@
 		.attr("y", 6)
 		.attr("dy", ".71em")
 		.style("text-anchor", "end")
-		.text("DATE A MODIFIER");
+		.text("[(#GET{titre_yaxis})]");
 
 	svg.append("path")
 		.datum(json)
@@ -132,12 +133,12 @@
 
 	svg.append("text")
 		.attr("x", (width / 2))
-		.attr("y", 1 - (margin.bottom / 2.8))
+		.attr("y", height + (margin.bottom - 3))
 		.attr("text-anchor", "middle")
 		.attr("fill", "[(#GET{header_footer_color})]") 
 		.style("font-size", "[(#GET{header_footer_fontSize})]px") 
 		.style("font-family", "[(#GET{header_footer_font})]")
-		.text("[(#GET{header_footer_text})]");
+		.text("[(#GET{footer_text})]");
 
 	svg.selectAll("dot")
 		.data(json)
