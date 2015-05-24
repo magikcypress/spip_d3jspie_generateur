@@ -9,8 +9,10 @@ Créer de bien joli graph avec d3jspie
 * Possibilité de créer des bar
 * Possibilité de créer des ligne
 * Ajouter la couleur hexadecimal dans le champs couleur des formulaires. (bug a régler sur palette)
+* Ajout d'un document json pour gérer les datas
 
 #### TODO ####
 
-* Mieux traiter les données à importer, pour le moment rien ne se passe.
+* Fil d'ariane du privé redirige vers une page vide
+* Mieux gérer le document json attaché au graph
 * Simplifier le nombre de formulaire
