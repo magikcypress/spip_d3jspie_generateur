@@ -24,8 +24,6 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 **/
 function formulaires_editer_d3jspie_generateur_charger_dist($id_d3jspie_generateur='new', $objet='', $id_objet='', $retour='', $ajaxload='oui', $options=''){
 
-	spip_log(_request('fichier'), 'test.' . _LOG_ERREUR);
-
 	$valeurs = array();
 	$d3jspie_generateur = sql_fetsel('*', 'spip_d3jspie_generateur', 'id_d3jspie_generateur=' . intval($id_d3jspie_generateur));
 

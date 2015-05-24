@@ -42,7 +42,8 @@
 	]
 </div>
 
-<INCLURE{fond=prive/squelettes/inclure/line.js,env,ajax} />
+[(#ENV{form_id_d3jspie_generateur}|oui)
+<INCLURE{fond=prive/squelettes/inclure/line.js,env,ajax} />]
 
 <script type="text/javascript">
 	$(function(){

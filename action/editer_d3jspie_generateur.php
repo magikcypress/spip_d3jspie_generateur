@@ -10,10 +10,10 @@ include_spip('inc/autoriser');
  * @param int $id_d3jspie_generateur identifiant numérique du graph
  * @return int|false 0 si réussite, false dans le cas ou le graph n'existe pas
  */
-function d3jspie_generateur_supprimer($id_gis){
+function d3jspie_generateur_supprimer($id_d3jspie_generateur){
 	$valide = sql_getfetsel('id_d3jspie_generateur','spip_d3jspie_generateur','id_d3jspie_generateur='.intval($id_d3jspie_generateur));
 	if($valide && autoriser('supprimer','d3jspie_generateur',$valide)){
-		sql_delete("spip_d3jspie_generateur", "id_d3jspie_generateur=".intval($id_d3jspie_generateur));
+		// sql_delete("spip_d3jspie_generateur", "id_d3jspie_generateur=".intval($id_d3jspie_generateur));
 		sql_delete("spip_d3jspie_generateur", "id_d3jspie_generateur=".intval($id_d3jspie_generateur));
 		$id_d3jspie_generateur = 0;
 		include_spip('inc/invalideur');

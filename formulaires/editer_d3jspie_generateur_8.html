@@ -52,11 +52,11 @@
 					]
 					<div class="choix">
 						<input type="radio" name="#GET{name}" id="#GET{name}_oui" value="true"
-						[(#ENV{#GET{name}}|=={true}|oui)checked="checked"] /><label for="#GET{name}_oui"><:d3jspie_generateur:item_utiliser_misc_gradient_enabled:></label>
+						[(#ENV{#GET{name}}|=={oui}|oui)checked="checked"] /><label for="#GET{name}_oui"><:d3jspie_generateur:item_utiliser_misc_gradient_enabled:></label>
 					</div>
 					<div class="choix">
 						<input type="radio" name="#GET{name}" id="#GET{name}_non" value="false"
-						[(#ENV{#GET{name}}|=={false}|oui)checked="checked"] /><label for="#GET{name}_non"><:d3jspie_generateur:item_utiliser_misc_gradient_disabled:></label>
+						[(#ENV{#GET{name}}|=={oui}|non)checked="checked"] /><label for="#GET{name}_non"><:d3jspie_generateur:item_utiliser_misc_gradient_disabled:></label>
 					</div>
 				</li>
 				#SET{name,form_misc_gradient_percentage}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}
@@ -80,4 +80,5 @@
 	]
 </div>
 
-<INCLURE{fond=prive/squelettes/inclure/pie.js,env,ajax} />
+[(#ENV{form_id_d3jspie_generateur}|oui)
+<INCLURE{fond=prive/squelettes/inclure/pie.js,env,ajax} />]

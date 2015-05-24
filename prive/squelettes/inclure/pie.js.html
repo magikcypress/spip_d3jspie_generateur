@@ -42,6 +42,7 @@
 	[(#SET{fichier,#INCLURE{#FICHIER}})]
 </BOUCLE_tous>
 
+
 <div id="d3jspie_generateur_pie"></div>
 
 <script>
@@ -114,12 +115,3 @@
 		"callbacks": {}
 	});
 </script>
-
-[(#AUTORISER{supprimer,d3jspie_generateur,#ID_D3JSPIE_GENERATEUR}|oui)
-	[(#URL_ACTION_AUTEUR{
-		supprimer_d3jspie_generateur,
-		#ID_D3JSPIE_GENERATEUR,
-		#URL_ECRIRE{d3jspie_generateur}
-		}|icone_horizontale{<:d3jspie_generateur:bouton_supprimer:>,d3jspie_generateur-24,del}
-	)]
-]
