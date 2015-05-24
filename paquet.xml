@@ -21,7 +21,6 @@
 
 	<pipeline nom="declarer_tables_interfaces" inclure="base/d3jspie_generateur.php" />
 	<pipeline nom="declarer_tables_objets_sql" inclure="base/d3jspie_generateur.php" />
-	<pipeline nom="declarer_tables_auxiliaires" inclure="base/d3jspie_generateur.php" />
 	<pipeline nom="autoriser" inclure="d3jspie_generateur_autorisations.php" />
 	<pipeline nom="header_prive_css" action="header_prive_css" inclure="d3jspie_generateur_pipelines.php" />
 	<pipeline nom="insert_head_css" action="insert_head_css" inclure="d3jspie_generateur_pipelines.php" />

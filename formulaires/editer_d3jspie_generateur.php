@@ -256,11 +256,10 @@ function formulaires_editer_d3jspie_generateur_traiter_dist($id_d3jspie_generate
 	$set['date_modif'] = date('Y-m-d H:i:s');
 	$set['type'] = "pie";
 
-	if($id_d3jspie_generateur) {
+	if($id_d3jspie_generateur)
 		sql_updateq('spip_d3jspie_generateur', $set, 'id_d3jspie_generateur=' . intval($id_d3jspie_generateur));
-	} else {
+	else
 		$id_d3jspie_generateur = sql_insertq('spip_d3jspie_generateur', $set);
-	}
 
 	if($fichier = _request('fichier')) {
 		$ajouter_documents = charger_fonction('ajouter_documents', 'action');
