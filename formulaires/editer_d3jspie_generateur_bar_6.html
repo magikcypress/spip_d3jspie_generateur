@@ -42,9 +42,6 @@
 	]
 </div>
 
-[(#ENV{form_id_d3jspie_generateur}|oui)
-<INCLURE{fond=prive/squelettes/inclure/bar.js,env,ajax} />]
-
 <script type="text/javascript">
 	$(function(){
 		$("#form_rotation_yaxis").after('<span class="range_valeur_courante"></span>');
@@ -55,3 +52,7 @@
 		});
 	});
 </script>
+
+<div class="centrer">
+[(#ENV{form_id_d3jspie_generateur}|oui)
+<INCLURE{fond=prive/squelettes/inclure/bar.js,env,ajax} />]</div>

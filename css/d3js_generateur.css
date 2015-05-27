@@ -1,3 +1,9 @@
-pre {
-	color: #000000;
+.centrer {
+	text-align: center;
+}
+
+.range_valeur,
+.range_valeur_courante {
+	color: #333333;
+	vertical-align: 5px;
 }
