@@ -9,6 +9,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// B
 	'bouton_supprimer' => 'Supprimer ce graph',
+	'bouton_supprimer_document' => 'Supprimer ce document',
 
 	// D
 	'd3jspie_generateur' => 'D3js générateur',

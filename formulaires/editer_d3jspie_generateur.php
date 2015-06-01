@@ -26,12 +26,17 @@ function formulaires_editer_d3jspie_generateur_charger_dist($id_d3jspie_generate
 
 	$valeurs = array();
 	$d3jspie_generateur = sql_fetsel('*', 'spip_d3jspie_generateur', 'id_d3jspie_generateur=' . intval($id_d3jspie_generateur));
+	$id_document = sql_getfetsel('id_document', 'spip_documents_liens', 'id_objet=' . intval($id_d3jspie_generateur), '', 'id_document DESC', '1');
 
-	if($d3jspie_generateur) {
+	if($d3jspie_generateur && $id_document) {
 		foreach ($d3jspie_generateur as $cle => $valeur) {
 				$valeurs["form_$cle"] = $valeur;
 		}
-		if(_request('fichier')) $valeurs["form_donnees"] = _request('fichier');
+		if(_request('fichier')) 
+			$valeurs["form_donnees"] = _request('fichier');
+		else
+			$valeurs["id_document"] = $id_document;
+
 	} else {
 		$champs = array(
 			'form_titre',
@@ -136,40 +141,51 @@ function formulaires_editer_d3jspie_generateur_verifier_5_dist($id_d3jspie_gener
 
 		$erreurs = array();
 
-		// on joint un document deja dans le site
-		$files = joindre_trouver_fichier_envoye();
+		$d3jspie_generateur = sql_fetsel('*', 'spip_d3jspie_generateur', 'id_d3jspie_generateur=' . intval($id_d3jspie_generateur));
+		$id_document = sql_getfetsel('id_document', 'spip_documents_liens', 'id_objet=' . intval($id_d3jspie_generateur), '', 'id_document DESC', '1');
 
-		if (is_string($files))
-			$erreurs['form_donnees'] = $files;
-		elseif(is_array($files)){
-			// erreur si on a pas trouve de fichier
-			if (!count($files))
-				$erreurs['form_donnees'] = _T('medias:erreur_aucun_fichier');
-			else{
-				// regarder si on a eu une erreur sur l'upload d'un fichier
-				foreach($files as $file){
-					if (isset($file['error'])
-						AND $test = joindre_upload_error($file['error'])){
-							if (is_string($test))
-								$erreurs['form_donnees'] = $test;
-							else
-								$erreurs['form_donnees'] = _T('medias:erreur_aucun_fichier');
+		if($id_document) {
+			// TODO: Faire mieux
+			return;
+
+		} else {
+
+			// on joint un document deja dans le site
+			$files = joindre_trouver_fichier_envoye();
+
+			if (is_string($files))
+				$erreurs['form_donnees'] = $files;
+			elseif(is_array($files)){
+				// erreur si on a pas trouve de fichier
+				if (!count($files))
+					$erreurs['form_donnees'] = _T('medias:erreur_aucun_fichier');
+				else{
+					// regarder si on a eu une erreur sur l'upload d'un fichier
+					foreach($files as $file){
+						if (isset($file['error'])
+							AND $test = joindre_upload_error($file['error'])){
+								if (is_string($test))
+									$erreurs['form_donnees'] = $test;
+								else
+									$erreurs['form_donnees'] = _T('medias:erreur_aucun_fichier');
+						}
 					}
 				}
 			}
-		}
 
-		if(!isset($erreurs['form_donnees'])) {
-			$tmp_dir = sous_repertoire(_DIR_TMP, 'd3jspie_generateur');
-			if($tmp_dir) {
-				$move_file = move_uploaded_file($files[0]['tmp_name'], $tmp_dir . "/" . $files[0]['name']);
-				if($move_file) 
-					set_request('fichier', $tmp_dir . $files[0]['name']);
-				else
-					$erreurs['form_donnees'] = _T('medias:probleme_creation_fichier');
-			} else {
-				$erreurs['form_donnees'] = _T('medias:aucun_repertoire');
+			if(!isset($erreurs['form_donnees'])) {
+				$tmp_dir = sous_repertoire(_DIR_TMP, 'd3jspie_generateur');
+				if($tmp_dir) {
+					$move_file = move_uploaded_file($files[0]['tmp_name'], $tmp_dir . "/" . $files[0]['name']);
+					if($move_file) 
+						set_request('fichier', $tmp_dir . $files[0]['name']);
+					else
+						$erreurs['form_donnees'] = _T('medias:probleme_creation_fichier');
+				} else {
+					$erreurs['form_donnees'] = _T('medias:aucun_repertoire');
+				}
 			}
+
 		}
 	}
 

@@ -19,6 +19,7 @@
 					<span class='erreur_message'>(#GET{erreurs})</span>
 					]<div class="choix">
 						<div><input type="file" name="#GET{name}" value="#ENV{#GET{name}}" /></div>
+						<div>[(#MODELE{json,id_document=#ENV{id_document,''}})]</div>
 						<label for="#GET{name}"><:d3jspie_generateur:item_utiliser_donnees:><p><:d3jspie_generateur:item_utiliser_donnees_complement:></p></label>
 					</div>
 				</li>
